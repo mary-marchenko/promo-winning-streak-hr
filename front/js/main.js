@@ -1,6 +1,6 @@
 (function () {
 
-    const apiURL = 'https://fav-prom.com/api_your_promo'
+    const apiURL = 'https://fav-prom.com/api_your_promo2'
 
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
@@ -8,12 +8,13 @@
         redirectBtns = document.querySelectorAll('.btn-join'),
         loader = document.querySelector(".spinner-overlay")
 
-    const ukLeng = document.querySelector('#ukLeng');
+    const hrLeng = document.querySelector('#hrLeng');
     const enLeng = document.querySelector('#enLeng');
 
-    let locale = "en"
+    let locale = sessionStorage.getItem("locale") ?? "hr"
+    // let locale = "en"
 
-    if (ukLeng) locale = 'uk';
+    if (hrLeng) locale = 'hr';
     if (enLeng) locale = 'en';
 
     let debug = true
@@ -23,6 +24,7 @@
     let i18nData = {};
     const translateState = true;
     let userId = null;
+    // userId = 100300268;
 
     const request = function (link, extraOptions) {
         return fetch(apiURL + link, {
@@ -185,7 +187,7 @@
         if (!element) {
             return;
         }
-        for (const lang of ['uk', 'en']) {
+        for (const lang of ['hr', 'en']) {
             element.classList.remove(baseCssClass + lang);
         }
         element.classList.add(baseCssClass + locale);
@@ -342,6 +344,128 @@
             checkSliderActivation();
         }, 200);
     });
+
+    // TEST
+    document.querySelector('.dark-btn').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+    });
+    const lngBtn = document.querySelector(".lng-btn")
+
+    lngBtn.addEventListener("click", () => {
+        if (sessionStorage.getItem("locale")) {
+            sessionStorage.removeItem("locale");
+        } else {
+            sessionStorage.setItem("locale", "en");
+        }
+        window.location.reload();
+    });
+
+    const authBtn = document.querySelector(".auth-btn")
+    authBtn.addEventListener("click", () =>{
+        if(userId){
+            sessionStorage.removeItem("userId")
+        }else{
+            sessionStorage.setItem("userId", "18908465")
+        }
+        window.location.reload()
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".menu-btn")?.addEventListener("click", () => {
+            document.querySelector(".menu-test")?.classList.toggle("hide");
+        });
+    });
+
+    userId = sessionStorage.getItem("userId") ?? null
+
+    document.querySelector('.success-btn').addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(card => {
+            const bg = card.querySelector('.card__bg');
+            const successBlock = card.querySelector('.card__success');
+
+            bg.classList.remove('success', 'inProgress', 'fail', 'locked');
+
+            bg.classList.add('success');
+
+            successBlock.classList.remove('hide');
+        });
+    });
+
+    document.querySelector('.inProgress-btn').addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(card => {
+            const bg = card.querySelector('.card__bg');
+            const successBlock = card.querySelector('.card__success');
+
+            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
+                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
+
+                bg.classList.add('inProgress');
+
+                if (!successBlock.classList.contains('hide')) {
+                    successBlock.classList.add('hide');
+                }
+            }
+        });
+    });
+
+    document.querySelector('.fail-btn').addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(card => {
+            const bg = card.querySelector('.card__bg');
+            const successBlock = card.querySelector('.card__success');
+
+            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
+                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
+
+                bg.classList.add('fail');
+
+                if (!successBlock.classList.contains('hide')) {
+                    successBlock.classList.add('hide');
+                }
+            }
+        });
+    });
+
+    document.querySelector('.locked-btn').addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(card => {
+            const bg = card.querySelector('.card__bg');
+            const successBlock = card.querySelector('.card__success');
+
+            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
+                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
+
+                bg.classList.add('locked');
+
+                if (!successBlock.classList.contains('hide')) {
+                    successBlock.classList.add('hide');
+                }
+            }
+        });
+    });
+
+    document.querySelector('.progressBar-btn').addEventListener('click', () => {
+        document.querySelectorAll('.progressBar__item, .challenge__prize-item, .challenge__bonus-itemп').forEach(el => {
+            el.classList.toggle('active');
+        });
+    });
+
+    document.querySelector('.withoutBonus-btn').addEventListener('click', () => {
+        document.querySelectorAll('.challenge__bonus').forEach(el => {
+            el.classList.toggle('hide');
+        });
+    });
+
+    // renderUsers = function () {
+    //     console.log('renderUsers вимкнено для тесту');
+    // }
+    //
+    // populateUsersTable = function () {
+    //     console.log('populateUsersTable вимкнено для тесту');
+    // }
+    //
+    // displayUser = function () {
+    //     console.log('displayUser вимкнено для тесту');
+    // }
 
 })();
 

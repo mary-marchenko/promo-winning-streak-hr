@@ -84,21 +84,40 @@ body.dark
       display: none
     .pictureDark
       display: block
+  .bg
+    display: none
+  .instructions
+    &__block
+      background: $dark-bg
+  .challenge__progress
+    background: $dark-bg
+    &-top
+      background: url('../img/label/label-your-progress-desk-dark.png') no-repeat 50% 0/cover
+      background-size: 100% 100%
+      @media screen and (max-width: 600px)
+        background: url("../img/label/label-your-progress-mob-dark.png") no-repeat 50% 0/cover
+        background-size: 100% 100%
+
+  .table__wrap
+    background: $dark-bg
+
+
 // end DARK
 
 //EN styles
 picture
   &.en
-    display: block
-  &.hr
     display: none
+  &.hr
+    display: block
 
 .fav-page.en
   picture
-    &.uk
-      display: none
     &.en
       display: block
+    &.hr
+      display: none
+
 //end EN
 
 body
@@ -959,9 +978,6 @@ body
         color: $white
         margin-bottom: 6px
 
-
-
-
 @keyframes lineMove
   from
     transform: scaleX(0)
@@ -978,3 +994,9 @@ body
   to
     opacity: 1
     transform: translateY(0)
+
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
