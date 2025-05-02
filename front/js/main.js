@@ -240,7 +240,7 @@
             } else if (distance === 1 || (currentIndex === totalItems - 1 && index === 0)) {
                 newPosition = 22;
             } else {
-                newPosition = distance * 100;
+                newPosition = 0;
             }
 
             item.style.transform = `translateX(${newPosition}%) scale(${scale})`;

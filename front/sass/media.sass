@@ -6,7 +6,8 @@
 
 @media screen and (max-width: 975px)
   .btn
-    min-width: 279px
+    //min-width: 243px
+    //height: 67px
     margin-bottom: 45px
   .welcome
     &__cards
@@ -60,8 +61,8 @@
           &:before
             width: 126px
             height: 126px
-            top: -63px
-            left: -63px
+            top: -62px
+            left: -61px
           &:after
             width: 126px
             height: 126px
@@ -241,6 +242,11 @@
         border-radius: 17px
         width: 193px
         height: 271px
+        &.success
+          &:before
+            top: -60px
+          &:after
+            bottom: -57px
       &__name
         font-size: 20px
       &__success
@@ -383,8 +389,6 @@
       width: 85%
 
 @media screen and (max-width: 315px)
-  .btn
-    min-width: 260px
   .promo
     &__middle
       max-width: 95%
