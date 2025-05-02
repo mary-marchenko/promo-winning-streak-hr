@@ -1,0 +1,203 @@
+.fav-page.loading#legendary-trophy
+    .spinner-overlay
+        .spinner
+    .welcome
+        .welcome__cards
+            picture.pictureLight
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-cards-mob.jpg")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-cards-mob.jpg")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-cards-tab.jpg")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-cards-desk.jpg" alt="cards")
+                img(src="img/welcome-cards-desk.jpg" alt="cards")
+            picture.pictureDark
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-cards-mob-dark.png")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-cards-mob-dark.png")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-cards-tab-dark.png")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-cards-desk-dark.png" alt="cards")
+                img(src="img/welcome-cards-desk-dark.png" alt="cards")
+        .welcome__title
+            picture.en
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-title-mob-en.png" alt="Winning Streak")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-title-mob-en.png" alt="Winning Streak")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-title-tab-en.png" alt="Winning Streak")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-title-desk-en.png" alt="Winning Streak")
+                img(src="img/welcome-title-desk-en.png" alt="Winning Streak")
+            picture.hr
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-title-mob-hr.png" alt="Pobjednički niz")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-title-mob-hr.png" alt="Pobjednički niz")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-title-tab-hr.png" alt="Pobjednički niz")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
+                img(src="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
+        a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Login
+        .welcome__btn.took-part.btn(role="button" data-translate="playBtn") Join
+    .bg
+    .promo
+        .promo__top(data-translate="promoTop") Think you can predict the champions?
+        .promo__middle(data-translate="promoMiddle")
+            p Show your football knowledge and test your luck in FAVBET “Winning Streak” promotion!
+            p Test your luck and football instincts in our Winning Streak challenge!
+            p Bet on UEFA finals from €10 with odds from 1.70, earn RFB rewards for every win, and climb the leaderboard.
+            p Risk-free bets, power bonuses, and true champion glory await!
+        .promo__bottom(data-translate="promoBottom") Are you ready to go on a winning streak?
+    .instructions
+        .instructions__title
+            picture.en
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/instructions-mob-en.png" alt="How to participate")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/instructionse-mob-en.png" alt="How to participate")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/instructions-tab-en.png" alt="How to participate")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/instructions-desk-en.png" alt="How to participate")
+                img(src="img/instructions-desk-en.png" alt="How to participate")
+            picture.hr
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/instructions-mob-hr.png" alt="Kako sudjelovati?")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/instructions-mob-hr.png" alt="Kako sudjelovati?")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/instructions-tab-hr.png" alt="Kako sudjelovati?")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/instructions-desk-hr.png" alt="Kako sudjelovati?")
+                img(src="img/instructions-desk-hr.png" alt="Kako sudjelovati?")
+        .instructions__block
+            .instructions__container
+                ul.instructions__txt(data-translate="instructionTxt")
+                    li.instructions__txt-item #[span 1] Follow the challenge
+                    li.instructions__txt-item #[span 2] Bet on UEFA finals matches from 10eur
+                    li.instructions__txt-item #[span 3] Complete challenges and get instant RFB
+                .instructions__drop
+                    details.instructions__dropdown
+                        summary(data-translate="detailsBtn") Details
+                        .drop-txt
+                            .instructions__drop-txt-list(data-translate="detailsText")
+                                p Lorem ipsum dolor sit amet, consectetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lor p Lor
+                                p Lorem ipsum dolor sit amet, consectetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lorem ipsum dolor sit amet, consectetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lorem ipsum dolor sit amet, consectetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+                                p Lorem ipsum dolor sit amet, consectetur adipisic
+                                p Lorem ipsum do vctetur adipisic
+    .challenge
+        .challenge__title
+            picture.en
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/challenge-mob-en.png" alt="Challenge cards")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/challenge-mob-en.png" alt="Challenge cards")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/challenge-tab-en.png" alt="Challenge cards")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/challenge-desk-en.png" alt="Challenge cards")
+                img(src="img/challenge-desk-en.png" alt="Challenge cards")
+            picture.hr
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/challenge-mob-hr.png" alt="Kartice izazova")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/challenge-mob-hr.png" alt="Kartice izazova")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/challenge-tab-hr.png" alt="Kartice izazova")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/challenge-desk-hr.png" alt="Kartice izazova")
+                img(src="img/challenge-desk-hr.png" alt="Kartice izazova")
+        .challenge__txt(data-translate="challengeInfo") Ride the streak, bet from 10eur on Cups Finals and chase the glory!
+        .challenge__slider-wrapper
+            button.challenge__control.challenge__control-left
+            .challenge__cards
+                .card
+                    .card__bg.bg-1.success
+                    .card__success success
+                    .card__name Europa League </br> Final
+                    .card__info
+                        .card__info-part 1/4
+                        .card__info-date May 21st
+                .card
+                    .card__bg.bg-2.inProgress
+                    .card__success.hide
+                    .card__name Conference League </br> Final
+                    .card__info
+                        .card__info-part 2/4
+                        .card__info-date May 28st
+                .card
+                    .card__bg.bg-3.fail
+                    .card__success.hide
+                    .card__name Champions League </br> Final
+                    .card__info
+                        .card__info-part 3/4
+                        .card__info-date May 31st
+                .card
+                    .card__bg.bg-4.locked
+                    .card__success.hide
+                    .card__name Nations League </br> Final
+                    .card__info
+                        .card__info-part 4/4
+                        .card__info-date June 8th
+            button.challenge__control.challenge__control-right
+        .challenge__progress
+            .challenge__progress-top Your PROGRESS
+            .progressBar
+                .progressBar__item.active
+                .progressBar__item
+                .progressBar__item
+                .progressBar__item
+            .challenge__prize
+                .challenge__prize-item.active €10 RFB
+                .challenge__prize-item €20 RFB
+                .challenge__prize-item €30 RFB
+                .challenge__prize-item €40 RFB
+            .challenge__bonus
+                .challenge__bonus-item.active €100 PWB x5
+                .challenge__bonus-item €200 PWB x5
+        a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Login
+        .welcome__btn.took-part.btn(role="button" data-translate="playBtn") Join
+    .table.tablePos
+        .table__title
+            picture.en
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/results-mob-en.png" alt="Results")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/results-mob-en.png" alt="Results")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/results-tab-en.png" alt="Results")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/results-desk-en.png" alt="Results")
+                img(src="img/results-desk-en.png" alt="Results")
+            picture.hr
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/results-mob-hr.png" alt="REZULTATI")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/results-mob-hr.png" alt="REZULTATI")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/results-tab-hr.png" alt="REZULTATI")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/results-desk-hr.png" alt="REZULTATI")
+                img(src="img/results-desk-hr.png" alt="REZULTATI")
+        .table__wrap
+            .table__head
+                .table__head-item(data-translate="tableId") User id
+                .table__head-item(data-translate="tableChallenges") Challenges
+                .table__head-item(data-translate="tableRewards") Rewards
+            .table__body.table1.active
+                .table__body-scroll#results-table
+                    .table__row
+                        .table__row-item 48575***
+                        .table__row-item 4/4
+                        .table__row-item(data-translate="prize1") 30 eur RFB + 200 eur
+                    .table__row
+                        .table__row-item 48575***
+                        .table__row-item 3/4
+                        .table__row-item(data-translate="prize2") 20 eur RFB + 100 eur
+                    .table__row
+                        .table__row-item 48575***
+                        .table__row-item 2/4
+                        .table__row-item(data-translate="prize3") 10 eur RFB
+                    .table__row
+                        .table__row-item 48575***
+                        .table__row-item 1/4
+                        .table__row-item(data-translate="prize4") 10 eur RFB
+                    .table__row
+                        .table__row-item 48575***
+                        .table__row-item 1/4
+                        .table__row-item(data-translate="prize4") 10 eur RFB
+                .table__body-other#results-table-other
+                    .table__row.you
+                        .table__row-item You
+                        .table__row-item 1/4
+                        .table__row-item(data-translate="prize4") 10 eur RFB
+        .drop
+            details.dropdown
+                summary(data-translate="rulesTitle") Terms & Conditions
+                .drop-txt
+                    .drop-txt-list(data-translate="rulesTxt")
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam asperiores corporis
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam asperiores c
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam asperiores c
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam asperiores c
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing

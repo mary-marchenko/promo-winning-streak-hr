@@ -1,0 +1,981 @@
+//$blue: #000055
+$dark-blue: #00003d
+$white: #fff
+$magenta: #FF267E
+$green: #05C48A
+$dark-bg: #191A23
+$blue: #00eaff80
+$blue-bright: #00EAFF
+$blue-unactive: #299AB780
+$grey-unactive: #a1969580
+$yellow: #E8CF5C
+
+$font-SpecialGotExpOne-Regular: 'SpecialGothicExpandedOne-Regular', sans-serif
+$font-Favbet-CondensedBold: 'FavbetDisplay-CondensedBold', sans-serif
+$font-Favbet-Regular: 'FavbetText-Regular', sans-serif
+$font-Favbet-CondensedMedium: 'FavbetDisplay-CondensedMedium', sans-serif
+
+//test
+.menu-btn
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 20
+  width: fit-content
+  background: white
+  padding: 3px
+
+.menu-test
+  position: fixed
+  left: 0
+  top: 25px
+  z-index: 20
+  display: flex
+  gap: 2px
+  flex-direction: column
+  & > button
+    width: fit-content
+    background: white
+    color: black
+    padding: 2px
+    font-family: inherit
+    border-radius: 2px
+
+// loader
+.spinner-overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: $blue
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 8
+
+.spinner
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  background: conic-gradient(#3a6ceb 0deg 180deg, #e3bdbd 180deg 360deg)
+  animation: rotate 1.5s linear infinite
+  mask: radial-gradient(farthest-side, transparent calc(100% - 7px), black calc(100% - 15px))
+
+.fav-page.loading
+  max-height: 100vh
+  overflow: hidden
+
+body.light
+  background: $dark-blue
+  .fav-page
+    .pictureDark
+      display: none
+
+picture.pictureDark
+  display: none
+
+// DARK
+body.dark
+  background: $dark-bg
+  .fav-page
+    background: $dark-bg
+    .pictureLight
+      display: none
+    .pictureDark
+      display: block
+// end DARK
+
+//EN styles
+picture
+  &.en
+    display: block
+  &.hr
+    display: none
+
+.fav-page.en
+  picture
+    &.uk
+      display: none
+    &.en
+      display: block
+//end EN
+
+body
+  overscroll-behavior: none
+  -webkit-tap-highlight-color: transparent
+  background: $dark-blue
+  img
+    max-width: 100%
+    height: auto
+  span
+    font-family: inherit
+
+.hide
+  display: none !important
+
+.opacity
+  opacity: 0 !important
+  pointer-events: none !important
+
+.btn
+  position: relative
+  display: flex
+  min-width: 238px
+  padding: 9px 77px
+  justify-content: center
+  align-items: center
+  text-transform: uppercase
+  border-radius: 8px
+  box-shadow: 0px 6px 15.5px 0px rgba(1, 202, 159, 0.50)
+  border: 2px solid transparent
+  background: radial-gradient(120.77% 44.93% at 50% 50%, #14EDF3 0%, #14EDF3 46.6%, #00CA9F 100%) padding-box, linear-gradient(0deg, #495FF0 0%, #EBEEFE 25%, #DE69F4 50%, #EBEEFE 75%, #495FF0 100%) border-box
+  transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border 0.4s ease-in-out
+  color: $dark-blue
+  font-family: $font-Favbet-CondensedBold
+  font-size: 32px
+  letter-spacing: 1.12px
+  margin-bottom: 33px
+  &:hover
+    border-radius: 8px
+    border: 2px solid transparent
+    cursor: pointer
+    background: radial-gradient(120.77% 44.93% at 50% 50%, #14EDF3 0%, #14EDF3 100%) padding-box, linear-gradient(90deg, #495FF0 0%, #EBEEFE 25%, #DE69F4 50%, #EBEEFE 75%, #495FF0 100%) border-box
+.fav-page
+  background: $dark-blue
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+  padding-bottom: 33px
+
+.welcome
+  display: flex
+  flex-direction: column
+  align-items: center
+  &__cards
+    width: 1061px
+    height: auto
+  &__title
+    width: 720px
+    margin-top: -175px
+    padding-bottom: 20px
+.bg
+  z-index: 1
+  top: 582px
+  left: 0
+  width: 100%
+  height: 1580px
+  position: absolute
+  background: url('../img/bg-desk.jpg') no-repeat 50% 50%/cover
+  @media screen and (max-width: 1050px)
+    background: url("../img/bg-tab.jpg") no-repeat 50% 50%/cover
+  @media screen and (max-width: 600px)
+    background: url("../img/bg-mob.jpg") no-repeat 50% 50%/cover
+.welcome, .promo, .instructions, .challenge, .table
+  z-index: 2
+  display: flex
+  flex-direction: column
+  align-items: center
+.promo
+  margin-bottom: 35px
+  &__top,
+    &__bottom
+    font-family: $font-Favbet-CondensedMedium
+    font-size: 24px
+    color: $white
+  &__middle
+    font-size: 18px
+    line-height: 22px
+    width: 756px
+    text-align: center
+    padding: 16px 0
+    margin: 8px 0
+    position: relative
+    &:before,
+      &:after
+        position: absolute
+        content: ""
+        top: 0
+        left: 10%
+        width: 606px
+        height: 2px
+        background: $blue
+        transform: scaleX(0)
+        transform-origin: left
+        animation: lineMove 0.9s ease-out forwards
+    &:after
+      top: auto
+      bottom: 0px
+      transform-origin: right
+    p
+      font-family: $font-Favbet-Regular
+      font-size: 18px
+      color: $white
+.instructions
+  margin-bottom: 35px
+  position: relative
+  &:after
+    z-index: 1
+    position: absolute
+    content: ""
+    bottom: -87px
+    right: -87px
+    width: 183px
+    height: 183px
+    animation: blink 1.6s infinite ease-in-out
+    background: url('../img/star-blue-dark.png') no-repeat 50% 50%/cover
+    @media screen and (max-width: 600px)
+      background: url("../img/star-blue-dark-mob.png") no-repeat 50% 50%/cover
+  &__title
+    width: 480px
+    margin-bottom: 10px
+  &__block
+    background: $dark-blue
+    position: relative
+    padding: 16px
+    width: 612px
+    border-radius: 14px
+    border: 2px solid #00EAFF
+    box-shadow: 0px 0px 16px 0px rgba(0, 255, 255, 0.90)
+    z-index: 2
+  &__container
+    z-index: 3
+    position: relative
+    border-radius: 8px
+    padding: 16px 24px
+    background: linear-gradient(110deg, rgba(196, 154, 231, 0.30) 1.2%, rgba(134, 213, 239, 0.30) 39.68%, rgba(196, 154, 231, 0.30) 100%)
+    &:after
+      position: absolute
+      content: ""
+      top: 8px
+      left: -5px
+      width: 20px
+      height: 110px
+      background: url('../img/label/label-start-desk.png') no-repeat 50% 50%/contain
+      @media screen and (max-width: 1050px)
+        background: url("../img/label/label-start-tab.png") no-repeat 50% 50%/contain
+      @media screen and (max-width: 600px)
+        background: url("../img/label/label-start-mob.png") no-repeat 50% 50%/contain
+  &__txt
+    margin-left: 30px
+    &-item
+      opacity: 0
+      transform: translateY(-18px)
+      transition: opacity 0.9s ease-out, transform 0.5s ease-out
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 24px
+      color: $white
+      display: flex
+      align-items: center
+      margin-bottom: 8px
+      &:nth-child(1)
+        animation-delay: 0s
+      &:nth-child(2)
+        animation-delay: 0.4s
+      &:nth-child(3)
+        animation-delay: 0.8s
+      &.visible
+        opacity: 1
+        transform: translateY(0)
+    span
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 24px
+      color: $white
+      width: 32px
+      height: 32px
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: $dark-blue
+      border: 2px solid $blue-bright
+      border-radius: 4px
+      margin-right: 10px
+  &__drop
+    max-width: 640px
+    margin: auto
+    width: 100%
+    padding: 15px 0 0
+  &__dropdown
+    outline: none!important
+    cursor: pointer
+    position: relative
+    width: 100%
+    text-align: start
+    summary::-webkit-details-marker
+      display: none
+    > summary
+      list-style: none
+    summary
+      margin-left: 30px
+      font-family: $font-Favbet-CondensedMedium
+      letter-spacing: 0.64px
+      font-size: 16px
+      width: 89%
+      padding: 8px 16px
+      outline: none!important
+      position: relative
+      display: flex
+      align-items: center
+      text-transform: uppercase
+      user-select: none
+      color: $white
+      border-radius: 8px
+      border: 2px solid $blue-bright
+      ::-webkit-details-marker
+        display: none
+      &:after
+        content: ''
+        background: url('../img/arrow.png') no-repeat 0 0/cover
+        width: 36px
+        height: 36px
+        position: absolute
+        right: 0
+        top: 0
+        display: block
+    &[open]
+      summary
+        color: $blue-bright
+        &:after
+          transform: rotate(180deg)
+  .drop-txt
+    border-radius: 8px
+    border: 2px solid $blue-bright
+    width: 89%
+    margin-left: 30px
+    padding: 10px 16px
+    margin-top: 5px
+    overflow-wrap: break-word
+    text-align: start
+    cursor: auto
+  &__drop-txt
+    strong
+      font-family: $font-Favbet-CondensedBold
+      color: $white
+      display: block
+    .retreat1
+      padding-left: 20px
+    .retreat2
+      padding-left: 30px
+    .circle
+      padding-left: 20px
+      &:before
+        content: ''
+        width: 4px
+        height: 4px
+        background: $white
+        border-radius: 50%
+        display: inline-block
+        margin: 0 5px 3px 0
+    &-list
+      max-height: 250px
+      overflow-y: auto
+      padding-right: 20px
+      &::-webkit-scrollbar
+        width: 4px
+        background: $grey-unactive
+      &::-webkit-scrollbar-thumb
+        background: $blue-bright
+        width: 4px
+      *, p, h2, h3, h4, h5, h6, strong, span
+        font-family: $font-Favbet-Regular
+        font-size: 14px
+        line-height: 22px
+        color: $white
+        margin-bottom: 6px
+.challenge
+  &__title
+    width: 450px
+    margin-bottom: -7px
+  &__txt
+    font-family: $font-Favbet-CondensedMedium
+    font-size: 24px
+    color: $white
+    margin-bottom: 23px
+  &__cards
+    display: flex
+    width: 1032px
+    justify-content: space-between
+    margin-bottom: 30px
+  .card
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__success
+      display: flex
+      justify-content: center
+      align-items: center
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 20px
+      text-shadow: 0px -2.271px 16.465px rgba(5, 234, 255, 0.77)
+      z-index: 3
+      color: $dark-blue
+      position: absolute
+      top: 252px
+      left: 0
+      width: 215px
+      height: 80px
+      background: url('../img/label/label-success-desk.png') no-repeat 50% 50%/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/label/label-success-desk.png") no-repeat 50% 50%/cover
+    &__name
+      text-align: center
+      color: $blue-bright
+      font-size: 24px
+      text-shadow: 0px -2px 14.5px rgba(5, 234, 255, 0.77)
+      font-family: $font-Favbet-CondensedMedium
+      margin-top: 20px
+      margin-bottom: 5px
+    &__info
+      display: flex
+      &-part,
+      &-date
+        font-family: $font-Favbet-CondensedMedium
+        color: $white
+        text-shadow: 0px -2px 14.5px rgba(5, 234, 255, 0.77)
+        font-size: 24px
+        line-height: 23px
+        border-radius: 4px
+        border: 1px solid rgba(255, 255, 255, 0.40)
+        padding: 0 3px
+      &-part
+        margin-right: 10px
+    &__bg
+        border-radius: 17px
+        width: 220px
+        height: 308px
+        display: block
+        position: relative
+        z-index: 2
+        &.inProgress
+          border: 1px solid #00EAFF
+        &.success
+          border: 2px solid $blue-bright
+          box-shadow: 0px 0px 18.168px 0px rgba(0, 255, 255, 0.80)
+          &:before
+            z-index: 1
+            position: absolute
+            content: ""
+            top: -87px
+            left: -87px
+            width: 183px
+            height: 183px
+            animation: blink 1.3s infinite ease-in-out
+            background: url('../img/star-blue.png') no-repeat 50% 50%/cover
+            @media screen and (max-width: 600px)
+              background: url("../img/star-blue-mob.png") no-repeat 50% 50%/cover
+          &:after
+            z-index: 1
+            position: absolute
+            content: ""
+            bottom: -87px
+            right: -87px
+            width: 183px
+            height: 183px
+            animation: blink 1.7s infinite ease-in-out
+            background: url('../img/star-blue-dark.png') no-repeat 50% 50%/cover
+            @media screen and (max-width: 600px)
+              background: url("../img/star-blue-dark-mob.png") no-repeat 50% 50%/cover
+        &.bg-1.success
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-success-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-success-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-1.inProgress
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-inProgress-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-inProgress-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-1.fail
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-fail-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-fail-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-1.locked
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-locked-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-locked-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-2.success
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-success-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-success-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-2.inProgress
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-inProgress-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-inProgress-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-2.fail
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-fail-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-fail-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-2.locked
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-locked-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-locked-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-3.success
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-success-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-success-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-3.inProgress
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-inProgress-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-inProgress-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-3.fail
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-fail-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-fail-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-3.locked
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-locked-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-locked-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-4.success
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-success-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-success-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-4.inProgress
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-inProgress-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-inProgress-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-4.fail
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-fail-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-fail-mob.jpg") no-repeat 50% 50%/cover
+        &.bg-4.locked
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-locked-mob.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-locked-mob.jpg") no-repeat 50% 50%/cover
+  &__control
+    display: none
+  &__progress
+    width: 450px
+    background: $dark-blue
+    border-radius: 88px
+    padding: 12px 24px 8px
+    box-shadow: 0px 10.976px 8.895px 0px rgba(0, 255, 255, 0.32)
+    position: relative
+    margin-bottom: 25px
+    display: flex
+    flex-direction: column
+    align-items: center
+    &-top
+      position: absolute
+      display: flex
+      left: 25%
+      justify-content: center
+      align-items: center
+      color: $white
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 18px
+      width: 227px
+      height: 25px
+      background: url('../img/label/label-your-progress-desk.png') no-repeat 50% 0/cover
+      background-size: 100% 100%
+      @media screen and (max-width: 600px)
+        background: url("../img/label/label-your-progress-mob.png") no-repeat 50% 0/cover
+        background-size: 100% 100%
+    .progressBar
+      margin-top: 3px
+      border-radius: 96px
+      //padding: 24px 0
+      width: 403px
+      height: 55px
+      display: flex
+      align-items: flex-end
+      justify-content: space-between
+      padding: 0 7px 6px
+      background: linear-gradient(103deg, rgba(196, 154, 231, 0.20) 8.54%, rgba(134, 213, 239, 0.20) 47.46%, rgba(196, 154, 231, 0.20) 91.84%)
+      &__item
+        display: block
+        width: 24%
+        height: 22px
+        &:nth-child(1)
+          border-radius: 8px 3px 3px 8px
+          background: url('../img/bar/bar-1.png') no-repeat 50% 50%/100% 100%
+          &.active
+            border-radius: 13px 3px 3px 13px
+            box-shadow: inset 1px 4px 0px rgba(255, 255, 255, 0.48), 0px 0px 3px rgba(208, 218, 255, 0.95)
+            background: url('../img/bar/bar-1-active.png') no-repeat 50% 50%/100% 100%
+        &:nth-child(2)
+          background: url('../img/bar/bar-2-3.png') no-repeat 50% 50%/100% 100%
+          &.active
+            border-radius: 5px
+            box-shadow: 1px 4px 0px 0px rgba(255, 255, 255, 0.48) inset, 0px 0px 3px 0px rgba(208, 218, 255, 0.95)
+            background: url('../img/bar/bar-2-3-active.png') no-repeat 50% 50%/100% 100%
+        &:nth-child(3)
+          background: url('../img/bar/bar-2-3.png') no-repeat 50% 50%/100% 100%
+          &.active
+            border-radius: 5px
+            box-shadow: 1px 4px 0px 0px rgba(255, 255, 255, 0.48) inset, 0px 0px 3px 0px rgba(208, 218, 255, 0.95)
+            background: url('../img/bar/bar-2-3-active.png') no-repeat 50% 50%/100% 100%
+        &:nth-child(4)
+          background: url('../img/bar/bar-4.png') no-repeat 100% 50%/100% 100%
+          &.active
+            border-radius: 3px 13px 13px 6px
+            box-shadow: 2px 4px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px 0.5px 3px 0px rgba(255, 238, 0, 0.98)
+            background: url('../img/bar/bar-4-active.png') no-repeat 50% 50%/100% 100%
+  &__prize
+    width: 100%
+    display: flex
+    justify-content: space-around
+    margin-top: 3px
+    &-item
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 18px
+      letter-spacing: 0.72px
+      color: $blue-unactive
+      &.active
+        color: $blue-bright
+        text-shadow: 0px 0px 3.136px rgba(122, 244, 255, 0.80)
+      &:last-child
+        color: $grey-unactive
+        &.active
+          color: $yellow
+          text-shadow: 0px 0px 3.136px rgba(255, 220, 60, 0.80)
+  &__bonus
+    margin: 0 auto
+    width: 270px
+    padding: 3px 13px 3px 28px
+    border-radius: 38px
+    background: linear-gradient(103deg, rgba(196, 154, 231, 0.20) 8.54%, rgba(134, 213, 239, 0.20) 47.46%, rgba(196, 154, 231, 0.20) 91.84%)
+  &__prize
+    display: flex
+  &__bonus
+    margin-top: 2px
+    display: flex
+    justify-content: space-between
+    &-item
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 18px
+      letter-spacing: 0.72px
+      color: $blue-unactive
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        width: 11px
+        height: 11px
+        top: 5px
+        left: -17px
+      &.active
+        color: $blue-bright
+        text-shadow: 0px 0px 3.136px rgba(122, 244, 255, 0.80)
+      &:first-child
+        &:before
+          background: url('../img/bar/blue-circle.png') no-repeat 100% 50%/cover
+        &.active
+          &:before
+            width: 15px
+            height: 15px
+            background: url('../img/bar/blue-circle-active.png') no-repeat 100% 50%/cover
+      &:last-child
+        color: $grey-unactive
+        &:before
+          background: url('../img/bar/yellow-circle.png') no-repeat 100% 50%/cover
+        &.active
+          color: $yellow
+          text-shadow: 0px 0px 2px rgba(255, 220, 60, 0.80)
+          &:before
+            top: 4px
+            width: 15px
+            height: 15px
+            background: url('../img/bar/yellow-circle-active.png') no-repeat 100% 50%/cover
+.table
+  display: flex
+  flex-direction: column
+  align-items: center
+  &__title
+    width: 220px
+  &__wrap
+    z-index: 2
+    position: relative
+    margin-bottom: 15px
+    margin-top: 10px
+    width: 615px
+    height: auto
+    padding: 0 10px 1px 16px
+    border: 2px solid $blue-bright
+    border-radius: 14px
+    background: $dark-blue
+    box-shadow: 0px -45px 24px 0px rgba(0, 234, 255, 0.15) inset, 0px 0px 16px 0px rgba(0, 255, 255, 0.90)
+    &:before
+      z-index: 1
+      position: absolute
+      content: ""
+      top: -90px
+      left: -90px
+      width: 183px
+      height: 183px
+      animation: blink 1.5s infinite ease-in-out
+      background: url('../img/star-blue.png') no-repeat 50% 50%/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/star-blue-mob.png") no-repeat 50% 50%/cover
+    &:after
+      z-index: 1
+      position: absolute
+      content: ""
+      bottom: -90px
+      right: -93px
+      width: 183px
+      height: 183px
+      animation: blink 1.8s infinite ease-in-out
+      background: url('../img/star-blue-dark.png') no-repeat 50% 50%/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/star-blue-dark-mob.png") no-repeat 50% 50%/cover
+  &__head
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 37px
+    &-item
+      display: flex
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 18px
+      color: $blue-bright
+      justify-content: flex-start
+      &:nth-child(1)
+        width: 64px
+      &:nth-child(2)
+        width: 300px
+        justify-content: center
+      &:nth-child(3)
+        width: 178px
+  &__body
+    position: relative
+    z-index: 2
+    display: none
+    flex-direction: column
+    min-height: 180px
+    max-height: 180px
+    &.active
+      display: flex
+    &-scroll
+      overflow-y: auto
+      scrollbar-width: auto
+      &::-webkit-scrollbar-thumb
+        width: 4px
+        background: $blue-bright
+        border-radius: 8px
+      &::-webkit-scrollbar
+        background: $grey-unactive
+        width: 4px
+  &__row
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 98%
+    position: relative
+    &:before
+      top: 0
+      left: 0
+      content: ''
+      position: absolute
+      width: 100%
+      height: 1px
+      background-color: $blue-bright
+    &.you
+      width: 97.2%
+      .table__row-item
+        color: $blue-bright
+    &-item
+      color: $white
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 18px
+      display: flex
+      height: 45px
+      align-items: center
+      position: relative
+      &:nth-child(1)
+        width: 64px
+      &:nth-child(2)
+        width: 300px
+        justify-content: center
+      &:nth-child(3)
+        width: 162px
+  .drop
+    z-index: 3
+    width: 100%
+    max-width: 615px
+    margin-top: 30px
+  .dropdown
+    outline: none!important
+    cursor: pointer
+    position: relative
+    width: 100%
+    text-align: start
+    background: rgba(255, 255, 255, 0.05)
+    summary::-webkit-details-marker
+      display: none
+    > summary
+      list-style: none
+    summary
+      font-family: $font-Favbet-CondensedMedium
+      letter-spacing: 0.64px
+      font-size: 16px
+      width: 100%
+      padding: 8px 16px
+      outline: none!important
+      position: relative
+      display: flex
+      align-items: center
+      text-transform: uppercase
+      user-select: none
+      color: $white
+      border-radius: 8px
+      border: 2px solid $blue-bright
+      ::-webkit-details-marker
+        display: none
+      &:after
+        content: ''
+        background: url('../img/arrow.png') no-repeat 0 0/cover
+        width: 36px
+        height: 36px
+        position: absolute
+        right: 0
+        top: 0
+        display: block
+    &[open]
+      summary
+        color: $blue-bright
+        &:after
+          transform: rotate(180deg)
+  .drop-txt
+    border-radius: 8px
+    border: 2px solid $blue-bright
+    width: 100%
+    padding: 10px 16px
+    margin-top: 5px
+    overflow-wrap: break-word
+    text-align: start
+    cursor: auto
+    strong
+      font-family: $font-Favbet-CondensedBold
+      color: $white
+      display: block
+    .retreat1
+      padding-left: 20px
+    .retreat2
+      padding-left: 30px
+    .circle
+      padding-left: 20px
+      &:before
+        content: ''
+        width: 4px
+        height: 4px
+        background: $white
+        border-radius: 50%
+        display: inline-block
+        margin: 0 5px 3px 0
+    &-list
+      max-height: 246px
+      overflow-y: auto
+      padding-right: 20px
+      &::-webkit-scrollbar
+        width: 4px
+        background: $grey-unactive
+      &::-webkit-scrollbar-thumb
+        background: $blue-bright
+        width: 4px
+      *, p, h2, h3, h4, h5, h6, strong, span
+        font-family: $font-Favbet-Regular
+        font-size: 14px
+        line-height: 22px
+        color: $white
+        margin-bottom: 6px
+
+
+
+
+@keyframes lineMove
+  from
+    transform: scaleX(0)
+  to
+    transform: scaleX(1)
+
+@keyframes blink
+  0%, 100%
+    opacity: 0.5
+  50%
+    opacity: 1
+
+@keyframes slideDown
+  to
+    opacity: 1
+    transform: translateY(0)
