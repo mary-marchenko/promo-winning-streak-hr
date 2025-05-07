@@ -1,42 +1,6 @@
 (function () {
-    const apiURL = 'https://fav-prom.com/api_your_promo'
-
-    const getActiveWeek = (promoStartDate, weekDuration) => {
-        const currentDate = new Date();
-        let weekDates = [];
-
-        const Day = 24 * 60 * 60 * 1000;
-        const Week = weekDuration * Day;
-
-        const formatDate = (date) =>
-            `${date.getDate().toString().padStart(2, "0")}.${(date.getMonth() + 1).toString().padStart(2, "0")}`;
-
-        const calculateWeekPeriod = (weekIndex) => {
-            const baseStart = promoStartDate.getTime();
-            const start = new Date(baseStart + weekIndex * Week);
-            let end = new Date(start.getTime() + (weekDuration * Day - 1));
-            return { start, end };
-        };
-
-        let activeWeekIndex = null;
-
-        // Перевірка поточного тижня
-        for (let i = 0; i < 10; i++) { // Обмежуємо 10 тижнями (якщо потрібно більше, просто змініть лічильник)
-            const { start, end } = calculateWeekPeriod(i);
-            if (currentDate >= start && currentDate <= end) {
-                activeWeekIndex = i + 1;
-                break;
-            }
-        }
-
-        return activeWeekIndex;
-    };
-
-    const promoStartDate = new Date("2025-05-05T00:00:00");
-    const weekDuration = 10;
-
-    const activeWeek = getActiveWeek(promoStartDate, weekDuration) || 1;
-
+    const apiURL = 'https://fav-prom.com/api_winning_streak'
+    // const apiURL = 'https://fav-prom.com/api_hardcore_tennis'
 
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
@@ -44,7 +8,7 @@
         redirectBtns = document.querySelectorAll('.btn-join'),
         loader = document.querySelector(".spinner-overlay")
 
-    const ukLeng = document.querySelector('#ukLeng');
+    const hrLeng = document.querySelector('#hrLeng');
     const enLeng = document.querySelector('#enLeng');
 
     const toggleClasses = (elements, className) => elements.forEach(el => el.classList.toggle(`${className}`));
@@ -56,9 +20,10 @@
 
     let loaderBtn = false
 
-    let locale = "en"
+    let locale = sessionStorage.getItem("locale") ?? "hr"
+    // let locale = "hr"
 
-    if (ukLeng) locale = 'uk';
+    if (hrLeng) locale = 'hr';
     if (enLeng) locale = 'en';
 
     let debug = true
@@ -67,7 +32,8 @@
 
     let i18nData = {};
     const translateState = true;
-    let userId = null;
+    // let userId = null;
+    let userId = Number(sessionStorage.getItem("userId")) ?? null
 
     const request = function (link, extraOptions) {
         return fetch(apiURL + link, {
@@ -120,7 +86,7 @@
 
         function quickCheckAndRender() {
             checkUserAuth();
-
+            participateBtns.forEach(btn => btn.addEventListener('click', participate));
         }
 
         const waitForUserId = new Promise((resolve) => {
@@ -142,6 +108,7 @@
         return fetch(`${apiURL}/new-translates/${locale}`).then(res => res.json())
             .then(json => {
                 i18nData = json;
+                console.log(i18nData);
                 translate();
 
                 var mutationObserver = new MutationObserver(function (mutations) {
@@ -152,7 +119,7 @@
                     translate();
                 });
 
-                mutationObserver.observe(document.getElementById("yourPromoId"), {
+                mutationObserver.observe(document.getElementById("winningStreak"), {
                     childList: true,
                     subtree: true
                 });
@@ -231,21 +198,21 @@
         if (!element) {
             return;
         }
-        for (const lang of ['uk', 'en']) {
+        for (const lang of ['hr', 'en']) {
             element.classList.remove(lang);
         }
         element.classList.add(locale);
     }
 
-    function renderUsers(week) {
-        request(`/users/${week}`)
+    function renderUsers() {
+        request(`/users/`)
             .then(data => {
                 const users = data;
-                populateUsersTable(users, userId, week);
+                populateUsersTable(users, userId);
             });
     }
 
-    function populateUsersTable(users, currentUserId, week) {
+    function populateUsersTable(users, currentUserId) {
         resultsTable.innerHTML = '';
         resultsTableOther.innerHTML = '';
         if (!users?.length) return;
@@ -256,18 +223,18 @@
             displayUser(user, user.userid === currentUserId, resultsTable, topUsers, isTopCurrentUser, week);
         });
         if (!isTopCurrentUser && currentUser) {
-            displayUser(currentUser, true, resultsTableOther, users, false, week);
+            displayUser(currentUser, true, resultsTableOther, users, false);
         }
     }
 
-    function displayUser(user, isCurrentUser, table, users, isTopCurrentUser, week) {
+    function displayUser(user, isCurrentUser, table, users, isTopCurrentUser) {
         const renderRow = (userData, options = {}) => {
             const { highlight = false, neighbor = false } = options;
             const userRow = document.createElement('div');
             userRow.classList.add('table__row');
 
             const userPlace = users.indexOf(userData) + 1;
-            const prizeKey = debug ? null : getPrizeTranslationKey(userPlace, week);
+            const prizeKey = debug ? null : getPrizeTranslationKey(userPlace);
 
             if (userPlace <= 3) {
                 userRow.classList.add(`place${userPlace}`);
@@ -324,18 +291,18 @@
         return "**" + userId.toString().slice(2);
     }
 
-    function getPrizeTranslationKey(place, week) {
-        if (place <= 3) return `prize_${week}-${place}`;
-        if (place <= 10) return `prize_${week}-4-10`;
-        if (place <= 25) return `prize_${week}-11-25`;
-        if (place <= 50) return `prize_${week}-26-50`;
-        if (place <= 75) return `prize_${week}-51-75`;
-        if (place <= 100) return `prize_${week}-76-100`;
-        if (place <= 125) return `prize_${week}-101-125`;
-        if (place <= 150) return `prize_${week}-126-150`;
-        if (place <= 175) return `prize_${week}-151-175`;
-        if (place <= 200) return `prize_${week}-176-200`;
-    }
+    // function getPrizeTranslationKey(place, week) {
+    //     if (place <= 3) return `prize_${week}-${place}`;
+    //     if (place <= 10) return `prize_${week}-4-10`;
+    //     if (place <= 25) return `prize_${week}-11-25`;
+    //     if (place <= 50) return `prize_${week}-26-50`;
+    //     if (place <= 75) return `prize_${week}-51-75`;
+    //     if (place <= 100) return `prize_${week}-76-100`;
+    //     if (place <= 125) return `prize_${week}-101-125`;
+    //     if (place <= 150) return `prize_${week}-126-150`;
+    //     if (place <= 175) return `prize_${week}-151-175`;
+    //     if (place <= 200) return `prize_${week}-176-200`;
+    // }
 
     function participate() {
         if (!userId) {
@@ -365,8 +332,7 @@
 
             });
     }
-
-    // loadTranslations().then(init) запуск ініту сторінки
+    loadTranslations().then(init) //  запуск ініту сторінки
 
     //animation
     const itemsTxt = document.querySelectorAll('.instructions__txt-item')
@@ -390,7 +356,7 @@
         observer.observe(itemsTxt[0].parentElement)
     }
 
-//slider
+    //slider
     let sliderInitialized = false;
     let currentIndex = 0;
     let startX = 0;

@@ -9,18 +9,18 @@ button.menu-btn menu
     button.locked-btn locked
     button.progressBar-btn progress bar
     button.withoutBonus-btn withoutBonus
-.fav-page.loading#winning-streak
+.fav-page.loading#winningStreak
     .spinner-overlay
         .spinner
     .welcome
         .welcome__cards
-            picture.pictureLight
+            picture.light
                 source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-cards-mob.jpg")
                 source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-cards-mob.jpg")
                 source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-cards-tab.jpg")
                 source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-cards-desk.jpg" alt="cards")
                 img(src="img/welcome-cards-desk.jpg" alt="cards")
-            picture.pictureDark
+            picture.dark
                 source(media="(max-width: 600px) and (orientation: portrait)" srcset="img/welcome-cards-mob-dark.png")
                 source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 500px)" srcset="img/welcome-cards-mob-dark.png")
                 source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-cards-tab-dark.png")
@@ -40,7 +40,7 @@ button.menu-btn menu
                 source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
                 img(src="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
         a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Prijava
-        .welcome__btn.took-part.btn(role="button" data-translate="playBtn") Sudjeluj
+        .welcome__btn.part-btn.btn.hide(role="button" data-translate="playBtn") Sudjeluj
     .bg
     .promo
         .promo__top(data-translate="promoTop") Misliš da možeš predvidjeti prvake?
@@ -151,7 +151,7 @@ button.menu-btn menu
                 .challenge__bonus-item(data-translate="bonus1") €100 PWB x5
                 .challenge__bonus-item(data-translate="bonus2") €200 PWB x5
         a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Login
-        .welcome__btn.took-part.btn(role="button" data-translate="playBtn") Sudjeluj
+        .welcome__btn.part-btn.btn.hide(role="button" data-translate="playBtn") Sudjeluj
     .table.tablePos
         .table__title
             picture.en

@@ -1,7 +1,7 @@
 block head
 
 doctype html
-html(lang="uk")
+html(lang="hr")
     head
         meta(charset='utf-8')
         title #{title}
@@ -12,5 +12,9 @@ html(lang="uk")
     
         
     body
+        style.
+            picture, img {
+                display: none;
+            }
         block content
         script(src='js/main.js')
