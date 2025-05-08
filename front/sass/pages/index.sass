@@ -112,12 +112,28 @@ body.dark
 //EN styles
 .fav-page
   &.en
+    .welcome__title
+      @media screen and (max-width: 600px)
+        width: 250px
+    .instructions__title
+      @media screen and (max-width: 600px)
+        width: 270px
     .challenge
       @media screen and (max-width: 600px)
       .card
         &.active
           .card__name
             margin-left: -12%
+      &__title
+        @media screen and (max-width: 600px)
+          width: 270px
+    .table__title
+      picture
+        &.en
+          width: 220px
+          @media screen and (max-width: 600px)
+            width: 195px
+
 //end EN
 
 body
@@ -800,7 +816,7 @@ body
   flex-direction: column
   align-items: center
   &__title
-    width: 220px
+    width: 245px
   &__wrap
     z-index: 2
     position: relative
