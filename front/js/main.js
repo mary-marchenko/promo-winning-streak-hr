@@ -50,14 +50,14 @@
             .catch(err => {
                 console.error('API request failed:', err);
 
-                reportError(err);
+                // reportError(err);
 
-                document.querySelector('.fav-page').style.display = 'none';
-                if (window.location.href.startsWith("https://www.favbet.hr/")) {
-                    window.location.href = '/promocije/promocija/stub/';
-                } else {
-                    window.location.href = '/promos/promo/stub/';
-                }
+                // document.querySelector('.fav-page').style.display = 'none';
+                // if (window.location.href.startsWith("https://www.favbet.hr/")) {
+                //     window.location.href = '/promocije/promocija/stub/';
+                // } else {
+                //     window.location.href = '/promos/promo/stub/';
+                // }
 
                 return Promise.reject(err);
             });
@@ -105,12 +105,11 @@
     }
 
     function loadTranslations() {
-        return fetch(`${apiURL}/new-translates/${locale}`).then(res => res.json())
+        return request(`/translates/${locale}`)
             .then(json => {
                 i18nData = json;
                 console.log(i18nData);
                 translate();
-
                 var mutationObserver = new MutationObserver(function (mutations) {
                     const shouldSkip = mutations.every(mutation => {
                         return mutation.target.closest('.table');
