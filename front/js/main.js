@@ -5,7 +5,7 @@
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
         participateBtns = document.querySelectorAll('.part-btn'),
-        redirectBtns = document.querySelectorAll('.btn-join'),
+        redirectBtns = document.querySelectorAll('.play-btn'),
         loader = document.querySelector(".spinner-overlay")
 
     const hrLeng = document.querySelector('#hrLeng');
@@ -528,6 +528,19 @@
         window.location.reload()
     });
 
+    const btnParticipante = document.querySelector(".btn-participante")
+
+    btnParticipante.addEventListener("click", () =>{
+        if(sessionStorage.getItem("userId")=="18908465"){
+            unauthMsgs.forEach(item => item.classList.add('hide'));
+            participateBtns.forEach(item => item.classList.add('hide'));
+            redirectBtns.forEach(item => item.classList.remove('hide'));
+        }else{
+            sessionStorage.setItem("userId", "777")
+        }
+
+    });
+
 
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".menu-btn")?.addEventListener("click", () => {
@@ -539,65 +552,29 @@
 
     document.querySelector('.success-btn').addEventListener('click', () => {
         document.querySelectorAll('.card').forEach(card => {
-            const bg = card.querySelector('.card__bg');
-            const successBlock = card.querySelector('.card__success');
-
-            bg.classList.remove('success', 'inProgress', 'fail', 'locked');
-
-            bg.classList.add('success');
-
-            successBlock.classList.remove('hide');
+            card.classList.remove('success', 'inProgress', 'fail', 'locked');
+            card.classList.add('success');
         });
     });
 
     document.querySelector('.inProgress-btn').addEventListener('click', () => {
         document.querySelectorAll('.card').forEach(card => {
-            const bg = card.querySelector('.card__bg');
-            const successBlock = card.querySelector('.card__success');
-
-            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
-                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
-
-                bg.classList.add('inProgress');
-
-                if (!successBlock.classList.contains('hide')) {
-                    successBlock.classList.add('hide');
-                }
-            }
+            card.classList.remove('success', 'inProgress', 'fail', 'locked');
+            card.classList.add('inProgress');
         });
     });
 
     document.querySelector('.fail-btn').addEventListener('click', () => {
         document.querySelectorAll('.card').forEach(card => {
-            const bg = card.querySelector('.card__bg');
-            const successBlock = card.querySelector('.card__success');
-
-            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
-                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
-
-                bg.classList.add('fail');
-
-                if (!successBlock.classList.contains('hide')) {
-                    successBlock.classList.add('hide');
-                }
-            }
+            card.classList.remove('success', 'inProgress', 'fail', 'locked');
+            card.classList.add('fail');
         });
     });
 
     document.querySelector('.locked-btn').addEventListener('click', () => {
         document.querySelectorAll('.card').forEach(card => {
-            const bg = card.querySelector('.card__bg');
-            const successBlock = card.querySelector('.card__success');
-
-            if (bg.classList.contains('success') || bg.classList.contains('inProgress') || bg.classList.contains('fail') || bg.classList.contains('locked')) {
-                bg.classList.remove('success', 'inProgress', 'fail', 'locked');
-
-                bg.classList.add('locked');
-
-                if (!successBlock.classList.contains('hide')) {
-                    successBlock.classList.add('hide');
-                }
-            }
+            card.classList.remove('success', 'inProgress', 'fail', 'locked');
+            card.classList.add('locked');
         });
     });
 

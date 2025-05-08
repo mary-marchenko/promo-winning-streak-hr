@@ -57,7 +57,15 @@
         width: 150px
         height: 210px
         border-radius: 12px
-        &.success
+      &__inProgress,
+      &__fail,
+      &__locked
+        border-radius: 13px
+        font-size: 16px
+        text-shadow: 0px -1.456px 10.559px rgba(5, 234, 255, 0.77)
+        padding: 3px 9px
+      &.success
+        .card__bg
           &:before
             width: 126px
             height: 126px
@@ -242,11 +250,16 @@
       z-index: 1
       opacity: 0
       pointer-events: none
+      &__inProgress,
+      &__fail,
+      &__locked
+        top: 49%
       &__bg
         border-radius: 17px
         width: 193px
         height: 271px
-        &.success
+      &.success
+        .card__bg
           &:before
             top: -60px
           &:after

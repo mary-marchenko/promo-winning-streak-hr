@@ -3,6 +3,7 @@ button.menu-btn menu
     button.dark-btn dark
     button.lng-btn en
     button.auth-btn auth
+    button.btn-participante participante
     button.success-btn success
     button.inProgress-btn inProgress
     button.fail-btn fail
@@ -39,8 +40,9 @@ button.menu-btn menu
                 source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="img/welcome-title-tab-hr.png" alt="Pobjednički niz")
                 source(media="(min-width: 601px) and (orientation: landscape)" srcset="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
                 img(src="img/welcome-title-desk-hr.png" alt="Pobjednički niz")
-        a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Prijava
-        .welcome__btn.part-btn.btn.hide(role="button" data-translate="playBtn") Sudjeluj
+        a(href="/login/" role="button" data-translate="signBtn").welcome__btn.btn.hide.unauth-msg Prijavi se
+        .welcome__btn.part-btn.btn.hide(role="button" data-translate="partBtn") Pridruži se
+        .welcome__btn.btn.play-btn(data-translate="playBtn") Odigraj listić
     .bg
     .promo
         .promo__top(data-translate="promoTop") Misliš da možeš predvidjeti prvake?
@@ -106,31 +108,43 @@ button.menu-btn menu
         .challenge__slider-wrapper
             button.challenge__control.challenge__control-left
             .challenge__cards
-                .card
-                    .card__bg.bg-1.success
+                .card.success
+                    .card__bg.bg-1
                     .card__success(data-translate="success") success
                     .card__name(data-translate="event1") Finale Europske lige
+                    .card__inProgress(data-translate="cardInProgress") IN PROGRESS
+                    .card__fail(data-translate="cardFail") FAIL
+                    .card__locked(data-translate="cardLokced") LOCKED
                     .card__info
                         .card__info-part 1/4
                         .card__info-date(data-translate="date1") May 21st
-                .card
-                    .card__bg.bg-2.inProgress
-                    .card__success.hide(data-translate="success") success
+                .card.inProgress
+                    .card__bg.bg-2
+                    .card__success(data-translate="success") success
                     .card__name.card2(data-translate="event2") Finale Konferencijske lige
+                    .card__inProgress(data-translate="cardInProgress") IN PROGRESS
+                    .card__fail(data-translate="cardFail") FAIL
+                    .card__locked(data-translate="cardLokced") LOCKED
                     .card__info
                         .card__info-part 2/4
                         .card__info-date(data-translate="date2") May 28st
-                .card
-                    .card__bg.bg-3.fail
-                    .card__success.hide(data-translate="success") success
+                .card.fail
+                    .card__bg.bg-3
+                    .card__success(data-translate="success") success
                     .card__name(data-translate="event3") Finale Lige prvaka
+                    .card__inProgress(data-translate="cardInProgress") IN PROGRESS
+                    .card__fail(data-translate="cardFail") FAIL
+                    .card__locked(data-translate="cardLokced") LOCKED
                     .card__info
                         .card__info-part 3/4
                         .card__info-date(data-translate="date3") May 31st
-                .card
-                    .card__bg.bg-4.locked
-                    .card__success.hide(data-translate="success") success
+                .card.locked
+                    .card__bg.bg-4
+                    .card__success(data-translate="success") success
                     .card__name(data-translate="event4") Finale Lige nacija
+                    .card__inProgress(data-translate="cardInProgress") IN PROGRESS
+                    .card__fail(data-translate="cardFail") FAIL
+                    .card__locked(data-translate="cardLokced") LOCKED
                     .card__info
                         .card__info-part 4/4
                         .card__info-date(data-translate="date4") June 8th
@@ -150,8 +164,9 @@ button.menu-btn menu
             .challenge__bonus
                 .challenge__bonus-item(data-translate="bonus1") €100 PWB x5
                 .challenge__bonus-item(data-translate="bonus2") €200 PWB x5
-        a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.hide.unauth-msg Login
-        .welcome__btn.part-btn.btn.hide(role="button" data-translate="playBtn") Sudjeluj
+        a(href="/login/" role="button" data-translate="signBtn").welcome__btn.btn.hide.unauth-msg Prijavi se
+        .welcome__btn.part-btn.btn.hide(role="button" data-translate="partBtn") Pridruži se
+        .welcome__btn.btn.play-btn.hide(data-translate="playBtn") Odigraj listić
     .table.tablePos
         .table__title
             picture.en

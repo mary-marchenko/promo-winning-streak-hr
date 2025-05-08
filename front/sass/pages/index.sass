@@ -437,7 +437,7 @@ body
     flex-direction: column
     align-items: center
     &__success
-      display: flex
+      display: none
       justify-content: center
       align-items: center
       font-family: $font-Favbet-CondensedMedium
@@ -462,6 +462,235 @@ body
       font-family: $font-Favbet-CondensedMedium
       margin-top: 20px
       margin-bottom: 5px
+    &__inProgress,
+    &__fail,
+    &__locked
+      white-space: nowrap
+      display: none
+      z-index: 2
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      top: 45%
+      font-family: $font-Favbet-CondensedMedium
+      font-size: 20px
+      text-shadow: 0px -2.271px 16.465px rgba(5, 234, 255, 0.77)
+      background-color: $dark-blue
+      padding: 9px 14px
+      border-radius: 20px
+      border: 2.271px solid $blue-bright
+      color: $white
+      box-shadow: 0px 0px 30px -6px #0FF
+    &.success
+      .card__success
+        display: flex
+      .card__bg
+        &.success
+        border: 2px solid $blue-bright
+        box-shadow: 0px 0px 18.168px 0px rgba(0, 255, 255, 0.80)
+        &:before
+          z-index: 1
+          position: absolute
+          content: ""
+          top: -87px
+          left: -87px
+          width: 183px
+          height: 183px
+          animation: blink 1.3s infinite ease-in-out
+          background: url('../img/star-blue.png') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px)
+            background: url("../img/star-blue-mob.png") no-repeat 50% 50%/cover
+        &:after
+          z-index: 1
+          position: absolute
+          content: ""
+          bottom: -87px
+          right: -87px
+          width: 183px
+          height: 183px
+          animation: blink 1.7s infinite ease-in-out
+          background: url('../img/star-blue-dark.png') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px)
+            background: url("../img/star-blue-dark-mob.png") no-repeat 50% 50%/cover
+        &.bg-1
+          background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-2
+          background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-3
+          background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-4
+          background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-success-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
+    &.inProgress
+      .card__inProgress
+        display: block
+      .card__bg
+        border: 1px solid #00EAFF
+        &.bg-1
+          background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-2
+          background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-3
+          background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-4
+          background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-inProgress-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
+    &.locked
+      .card__locked
+        display: block
+      .card__bg
+        &.bg-1
+          background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-2
+          background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-3
+          background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-4
+          background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-locked-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
+    &.fail
+      .card__fail
+        display: block
+      .card__bg
+        &.bg-1
+          background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-1-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-2
+          background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-2-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-3
+          background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-3-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
+        &.bg-4
+          background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+            background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
+          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+            background: url('../img/cards/card-4-fail-tab.jpg') no-repeat 50% 50%/cover
+          @media screen and (max-width: 600px) and (orientation: portrait)
+            background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
+          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+            background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
+    &.fail
+      .card__fail
+        display: block
+    &.locked
+      .card__locked
+        display: block
     &__info
       display: flex
       position: absolute
@@ -479,201 +708,172 @@ body
       &-part
         margin-right: 10px
     &__bg
-        border-radius: 17px
-        width: 220px
-        height: 308px
-        display: block
-        position: relative
-        z-index: 2
-        &.inProgress
-          border: 1px solid #00EAFF
-        &.success
-          border: 2px solid $blue-bright
-          box-shadow: 0px 0px 18.168px 0px rgba(0, 255, 255, 0.80)
-          &:before
-            z-index: 1
-            position: absolute
-            content: ""
-            top: -87px
-            left: -87px
-            width: 183px
-            height: 183px
-            animation: blink 1.3s infinite ease-in-out
-            background: url('../img/star-blue.png') no-repeat 50% 50%/cover
-            @media screen and (max-width: 600px)
-              background: url("../img/star-blue-mob.png") no-repeat 50% 50%/cover
-          &:after
-            z-index: 1
-            position: absolute
-            content: ""
-            bottom: -87px
-            right: -87px
-            width: 183px
-            height: 183px
-            animation: blink 1.7s infinite ease-in-out
-            background: url('../img/star-blue-dark.png') no-repeat 50% 50%/cover
-            @media screen and (max-width: 600px)
-              background: url("../img/star-blue-dark-mob.png") no-repeat 50% 50%/cover
-        &.bg-1.success
-          background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-1-success-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-1.inProgress
-          background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-1-inProgress-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-1.fail
-          background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-1-fail-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-1.locked
-          background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-1-locked-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-2.success
-          background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-2-success-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-2.inProgress
-          background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-2-inProgress-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-2.fail
-          background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-2-fail-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-2.locked
-          background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-2-locked-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-3.success
-          background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-3-success-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-3.inProgress
-          background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-3-inProgress-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-3.fail
-          background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-3-fail-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-3.locked
-          background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-3-locked-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-4.success
-          background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-4-success-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-4.inProgress
-          background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-4-inProgress-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-4.fail
-          background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-4-fail-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
-        &.bg-4.locked
-          background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
-            background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
-          @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
-            background: url('../img/cards/card-4-locked-tab.jpg') no-repeat 50% 50%/cover
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
-          @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
-            background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
+      border-radius: 17px
+      width: 220px
+      height: 308px
+      display: block
+      position: relative
+      z-index: 2
+      //&.bg-1.success
+      //  background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-1-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-1-success-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-1-success-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-1.inProgress
+      //  background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-1-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-1-inProgress-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-1-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-1.fail
+      //  background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-1-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-1-fail-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-1-fail-tab.jpg") no-repeat 50% 50%/cover
+      &.bg-1.locked
+        //background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
+        //@media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+        //  background: url('../img/cards/card-1-locked-desk.jpg') no-repeat 50% 50%/cover
+        //@media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+        //  background: url('../img/cards/card-1-locked-tab.jpg') no-repeat 50% 50%/cover
+        //@media screen and (max-width: 600px) and (orientation: portrait)
+        //  background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
+        //@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+        //  background: url("../img/cards/card-1-locked-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-2.success
+      //  background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-2-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-2-success-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-2-success-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-2.inProgress
+      //  background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-2-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-2-inProgress-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-2-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-2.fail
+      //  background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-2-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-2-fail-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-2-fail-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-2.locked
+      //  background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-2-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-2-locked-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-2-locked-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-3.success
+      //  background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-3-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-3-success-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-3-success-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-3.inProgress
+      //  background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-3-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-3-inProgress-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-3-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-3.fail
+      //  background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-3-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-3-fail-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-3-fail-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-3.locked
+      //  background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-3-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-3-locked-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-3-locked-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-4.success
+      //  background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-4-success-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-4-success-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-4-success-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-4.inProgress
+      //  background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-4-inProgress-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-4-inProgress-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-4-inProgress-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-4.fail
+      //  background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-4-fail-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-4-fail-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-4-fail-tab.jpg") no-repeat 50% 50%/cover
+      //&.bg-4.locked
+      //  background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+      //    background: url('../img/cards/card-4-locked-desk.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+      //    background: url('../img/cards/card-4-locked-tab.jpg') no-repeat 50% 50%/cover
+      //  @media screen and (max-width: 600px) and (orientation: portrait)
+      //    background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
+      //  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+      //    background: url("../img/cards/card-4-locked-tab.jpg") no-repeat 50% 50%/cover
   &__control
     display: none
   &__progress
