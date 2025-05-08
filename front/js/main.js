@@ -334,26 +334,46 @@
     loadTranslations().then(init) //  запуск ініту сторінки
 
     //animation
-    const itemsTxt = document.querySelectorAll('.instructions__txt-item')
+    document.addEventListener('DOMContentLoaded', () => {
+        const wrappers = document.querySelectorAll('.instructions__container');
 
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                itemsTxt.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('visible')
-                    }, index * 300)
-                })
-                obs.disconnect()
+        if (wrappers.length === 0) {
+            console.error('Не знайдено жодного .instructions__container');
+            return;
+        }
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2,
+        };
+
+        wrappers.forEach((wrapper) => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            wrapper.classList.add('visible');
+                        }, 100); // Затримка, наприклад, 100 мс
+                        obs.disconnect();
+                    }
+                });
+            }, options);
+
+            observer.observe(wrapper);
+
+            // Перевірка: чи вже видно блок при завантаженні
+            const rect = wrapper.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                setTimeout(() => {
+                    wrapper.classList.add('visible');
+                    observer.disconnect();
+                }, 300);
             }
-        })
-    }, {
-        threshold: 0.2
-    })
-
-    if (itemsTxt.length > 0) {
-        observer.observe(itemsTxt[0].parentElement)
-    }
+        });
+    });
 
     //slider
     let sliderInitialized = false;
@@ -592,18 +612,6 @@
             el.classList.toggle('hide');
         });
     });
-
-    // renderUsers = function () {
-    //     console.log('renderUsers вимкнено для тесту');
-    // }
-    //
-    // populateUsersTable = function () {
-    //     console.log('populateUsersTable вимкнено для тесту');
-    // }
-    //
-    // displayUser = function () {
-    //     console.log('displayUser вимкнено для тесту');
-    // }
 
 })();
 

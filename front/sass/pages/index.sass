@@ -110,7 +110,14 @@ body.dark
 // end DARK
 
 //EN styles
-
+.fav-page
+  &.en
+    .challenge
+      @media screen and (max-width: 600px)
+      .card
+        &.active
+          .card__name
+            margin-left: -12%
 //end EN
 
 body
@@ -268,6 +275,10 @@ body
         background: url("../img/label/label-start-tab.png") no-repeat 50% 50%/contain
       @media screen and (max-width: 600px)
         background: url("../img/label/label-start-mob.png") no-repeat 50% 50%/contain
+    &.visible
+      .instructions__txt-item
+        opacity: 1
+        transform: translateY(0)
   &__txt
     margin-left: 30px
     &-item
@@ -281,14 +292,11 @@ body
       align-items: center
       margin-bottom: 8px
       &:nth-child(1)
-        animation-delay: 0s
+        transition-delay: 0s
       &:nth-child(2)
-        animation-delay: 0.4s
+        transition-delay: 0.4s
       &:nth-child(3)
-        animation-delay: 0.8s
-      &.visible
-        opacity: 1
-        transform: translateY(0)
+        transition-delay: 0.8s
     span
       font-family: $font-Favbet-CondensedMedium
       font-size: 24px
