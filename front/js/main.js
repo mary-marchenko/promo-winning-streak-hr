@@ -1,6 +1,5 @@
 (function () {
     const apiURL = 'https://fav-prom.com/api_winning_streak'
-    // const apiURL = 'https://fav-prom.com/api_hardcore_tennis'
 
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
