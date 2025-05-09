@@ -25,7 +25,7 @@
     if (hrLeng) locale = 'hr';
     if (enLeng) locale = 'en';
 
-    let debug = true
+    let debug = false
 
     if (debug) hideLoader()
 
@@ -351,26 +351,28 @@
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        console.log('IntersectionObserver: Блок став видимим');
                         setTimeout(() => {
+                            console.log('IntersectionObserver: додаю visible через 100 мс');
                             wrapper.classList.add('visible');
-                        }, 100); // Затримка, наприклад, 100 мс
+                        }, 100);
                         obs.disconnect();
                     }
                 });
             }, options);
 
-            observer.observe(wrapper);
+            requestAnimationFrame(() => {
+                const rect = wrapper.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-            // Перевірка: чи вже видно блок при завантаженні
-            const rect = wrapper.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-            if (rect.top < windowHeight && rect.bottom > 0) {
-                setTimeout(() => {
-                    wrapper.classList.add('visible');
-                    observer.disconnect();
-                }, 300);
-            }
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    setTimeout(() => {
+                        wrapper.classList.add('visible');
+                    }, 1800);
+                } else {
+                    observer.observe(wrapper);
+                }
+            });
         });
     });
 
